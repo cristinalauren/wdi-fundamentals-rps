@@ -25,14 +25,14 @@ function getPlayerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `getInput()`.
-    return /* Your Expression */;
+    return move=move||getInput();
 }
 
 function getComputerMove(move) {
     // Write an expression that operates on a variable called `move`
     // If a `move` has a value, your expression should evaluate to that value.
     // However, if `move` is not specified / is null, your expression should equal `randomPlay()`.
-    return /* Your Expression */;
+    return move=move|| randomPlay();
 }
 
 function getWinner(playerMove,computerMove) {
@@ -40,7 +40,29 @@ function getWinner(playerMove,computerMove) {
     // Write code that will set winner to either 'player', 'computer', or 'tie' based on the values of playerMove and computerMove.
     // Assume that the only values playerMove and computerMove can have are 'rock', 'paper', and 'scissors'.
     // The rules of the game are that 'rock' beats 'scissors', 'scissors' beats 'paper', and 'paper' beats 'rock'.
-    /* YOUR CODE HERE */
+ var userChoice = prompt('Do you choose rock, paper or scissors?');
+ var compChoice = Math.random();
+
+ if (compChoice <= 0.34) {
+ compChoice = 'rock';
+ } else if (compChoice <= 0.67) {
+ compChoice = 'paper';
+ } else {
+ compChoice = 'scissors';
+ }
+ 
+ function compare() {
+     if (userChoice == compChoice) {
+ console.log('The result is a tie!');
+ } else if ((userChoice == 'rock' && compChoice == 'scissors') || (userChoice == 'paper' && compChoice == 'rock') || (userChoice == 'scissors' && compChoice == 'paper')) {
+     console.log('You win!');
+ } else if ((userChoice == 'scissors' && compChoice == 'rock') ||(userChoice == 'paper' && compChoice == 'scissors') || (userChoice == 'rock' && compChoice == 'paper')) {
+     console.log('Computer wins!');
+ }
+ }
+    return winner;
+}
+
     return winner;
 }
 
